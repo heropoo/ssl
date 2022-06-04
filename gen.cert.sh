@@ -39,7 +39,7 @@ openssl req -new -out "${DIR}/$1.csr.pem" \
     -reqexts SAN \
     -config <(cat ca.cnf \
         <(printf "[SAN]\nsubjectAltName=${SAN}")) \
-    -subj "/C=ID/ST=Jakarta/L=Jakarta/O=Fishdrowned/OU=$1/ID=*.$1"
+    -subj "/C=ID/ST=Jakarta/L=Jakarta/O=Fishdrowned/OU=$1/CN=*.$1"
 
 # Issue certificate
 # openssl ca -batch -config ./ca.cnf -notext -in "${DIR}/$1.csr.pem" -out "${DIR}/$1.cert.pem"
